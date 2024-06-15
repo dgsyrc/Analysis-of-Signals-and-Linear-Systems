@@ -1,0 +1,101 @@
+\section{系统的特性与分析方法}
+
+\subsection{系统的特性}
+
+\subsubsection{线性}
+
+\begin{BoxProperty}[线性系统的性质]
+    设$y(\cdot)$为系统的响应，$f(\cdot)$为系统的激励，即$y(\cdot) = T[f(\cdot)]$
+
+    齐次性
+    \begin{Equation}
+        f(\cdot) \rightarrow y(\cdot) \Rightarrow af(\cdot)\rightarrow ay(\cdot)
+    \end{Equation}
+    可加性
+    \begin{Equation}
+        \left\{
+            \begin{aligned}
+                f_1(\cdot) \rightarrow y_1(\cdot) \\
+                f_2(\cdot) \rightarrow y_2(\cdot) 
+            \end{aligned}
+        \right.
+        \Rightarrow
+        f_1(\cdot) + f_2(\cdot) \rightarrow y_1(\cdot) + y_2(\cdot)
+    \end{Equation}
+    即线性性质
+    \begin{Equation}
+        af_1(\cdot) + bf_2(\cdot) \rightarrow ay_1(\cdot) + by_2(\cdot)
+    \end{Equation}
+\end{BoxProperty}
+
+\begin{BoxProperty}[线性系统的条件]
+    判断一个系统是否属于线性系统，需要满足以下三个条件
+
+    可分解性
+    \begin{Equation}
+        y(\cdot) = y_{zi}(\cdot)+y_{zs}(\cdot)
+    \end{Equation}
+    零状态线性
+    \begin{Equation}
+        T[\{af_1(t)+bf_2(t)\},\{0\}] = aT[\{f_1(\cdot)\},\{0\}]+bT[\{f_2(\cdot)\},\{0\}]
+    \end{Equation}
+    零输入线性
+    \begin{Equation}
+        T[\{0\},\{ax_1(0)+bx_2(0)\}] = aT[\{0\},\{x_1(0)\}]+bT[\{0\},\{x_2(0)\}]
+    \end{Equation}
+\end{BoxProperty}
+
+\subsubsection{时不变性}
+
+\begin{BoxProperty}[线性时不变系统的性质]
+    线性时不变系统满足以下性质
+    \begin{Equation}
+        y_{zs}(t-t_d) = T[\{f(t-t_d)\},\{0\}]
+    \end{Equation}
+\end{BoxProperty}
+
+直观判断方法：$f(\cdot)$前出现变系数，或有反转、展缩变换，则系统为时变系统
+
+\subsubsection{微分与积分特性}
+
+\begin{BoxProperty}[LTI系统的微分和积分特性]
+    微分特性
+    \begin{Equation}
+         f(t) \rightarrow y_{zs}(t) \Rightarrow f'(t) \rightarrow y_{zs}'(t)
+    \end{Equation}
+    积分特性
+    \begin{Equation}
+         f(t) \rightarrow y_{zs}(t) \Rightarrow \int_{-\infty}^{t} f(x)dx \rightarrow \int_{-\infty}^{t} y_{zs}(t) dx
+    \end{Equation}
+\end{BoxProperty}
+
+\subsubsection{因果性}
+\begin{BoxDefinition}[因果系统]
+    零状态响应不会出现在激励之前的系统即因果系统，即$t=t_0$时$f(t)$加入，当$t<t_0$时，$y_{zs}(t) = 0$
+\end{BoxDefinition}
+判断方法：输出不超前输入
+\begin{BoxDefinition}[因果信号]
+    $t = 0$接入系统的信号称为因果信号，可表示为$f(t)=f(t)\varepsilon(t)$
+\end{BoxDefinition}
+
+\subsubsection{稳定性}
+
+\begin{BoxDefinition}[稳定系统]
+    一个系统，若对有界的激励$f(\cdot)$所产生的零状态响应$y_{zs}(\cdot)$也是有界时，则称该系统为有界输入有界输出稳定，简称稳定。即 若$│f(\cdot)│<\infty$，其$│y_{zs} (\cdot)│<\infty$则称系统是稳定的。 
+\end{BoxDefinition}
+
+\subsection{系统的分析方法}
+
+求解的基本思路:
+
+\begin{itemize}
+    \item 把零输入响应和零状态响应分开求。
+    \item 把复杂信号分解为众多基本信号之和，根据线性系统的可加性：多个基本信号作用于线性系统所引起的响应等于各个基本信号所引起的响应之和。
+\end{itemize}
+
+采用的数学工具：
+\begin{itemize}
+    \item 时域：卷积积分与卷积和。
+    \item 频域：傅里叶变换。
+    \item 复频域：拉普拉斯变换与Z变换。
+\end{itemize}

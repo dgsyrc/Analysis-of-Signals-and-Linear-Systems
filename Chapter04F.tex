@@ -1,0 +1,51 @@
+\section{能量谱和功率谱}
+
+\subsection{帕斯瓦尔关系}
+
+\begin{BoxDefinition}[帕斯瓦尔关系]
+    帕斯瓦尔关系
+    \begin{Equation}
+        E = \int_{-\infty}^{\infty} |f(t)|^2 dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\mathrm{j}\omega)|^2 d\omega
+    \end{Equation}
+\end{BoxDefinition}
+
+\subsection{能量谱密度}
+
+\begin{BoxDefinition}[能量谱密度]
+    能量谱指单位频率内信号的能量，记为$E(\omega)$。
+    
+    在频带$df$内信号的能量为$E(\omega)df$，因而信号在整个频率范围内的总能量
+
+    \begin{Equation}
+        E = \int_{-\infty}^{\infty} E(\omega) df = \frac{1}{2\pi} \int_{-\infty}^{\infty} E(\omega) d\omega
+    \end{Equation}
+    由帕斯瓦尔关系可得
+    \begin{Equation}
+        E(\omega) = |F(\mathrm{j}\omega)|^2
+    \end{Equation}
+    即
+    \begin{Equation}
+        R(\tau) \longleftrightarrow E(\omega)
+    \end{Equation}
+    能量谱函数与自相关函数是一对傅里叶变换对。
+\end{BoxDefinition}
+
+\subsection{功率谱}
+
+\begin{BoxDefinition}[功率谱]
+    功率谱指单位频率的信号功率，记为$P(\mathrm{j}\omega)$。
+
+    在频带$df$内信号的总功率为$P(\omega)df$，因而信号在整个频率范围的总功率
+    \begin{Equation}
+        P = \int_{-\infty}^{\infty} P(\omega) df = \frac{1}{2\pi} \int_{-\infty}^{\infty} P(\omega) d\omega
+    \end{Equation}
+    因此
+    \begin{Equation}
+        P(\omega)  = \lim\limits_{T\rightarrow\infty}\frac{|F_T(\mathrm{j}\omega)|^2}{T}
+    \end{Equation}
+    即
+    \begin{Equation}
+        R(\tau) \longleftrightarrow P(\omega)
+    \end{Equation}
+    功率有限信号的功率谱与自相关函数是一对傅里叶变换对。
+\end{BoxDefinition}

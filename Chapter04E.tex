@@ -1,0 +1,188 @@
+\section{傅里叶变换的性质}
+\subsection{傅里叶变换的线性性质}
+
+\begin{BoxProperty}[傅里叶变换的线性性质]
+    如果$f_1(t)\longleftrightarrow F_1(\mathrm{j} \omega),f_2(t)\longleftrightarrow F_2(\mathrm{j} \omega)$，那么
+    \begin{Equation}
+        \left[af_1(t)+bf_2(t)\right]\longleftrightarrow\left[aF_1(t)+bF_2(t)\right]
+    \end{Equation}
+\end{BoxProperty}
+
+\subsection{奇偶虚实性}
+
+\begin{BoxProperty}[傅里叶变换的奇偶虚实性]
+    如果$f_1(t)$是实函数，且$f(t)\longleftrightarrow F(\mathrm{j} \omega)=\left|F(\mathrm{j} \omega)\right|e^{\mathrm{j} \varphi (\omega)}=R(\omega)+\mathrm{j} X(\omega)$
+
+    其中$\left|F(\mathrm{j} \omega)\right|=\sqrt{R^2(\omega)+X^2(\omega)} \quad \varphi(\omega)=\arctan(\frac{X(\omega)}{\omega})$，那么
+    \begin{Equation}
+        \begin{array}{l}
+            R(\omega)=R(-\omega), \quad X(\omega)=-X(-\omega)                                                \\
+            |F(\mathrm{j} \omega)|=|F(-\mathrm{j} \omega)|, \quad \varphi(\omega)=-\varphi(-\omega)          \\
+            f(-t) \longleftrightarrow  F(-\mathrm{j} \omega)=F^{*}(\mathrm{j} \omega)\footnote[2]{*表示共轭} \\
+            If \quad f(t)=f(-t) \quad then \quad X(\omega)=0, \quad F(\mathrm{j} \omega)=R(\omega)           \\
+            If \quad f(t)=-f(-t) \quad then \quad R(\omega)=0, \quad F(\mathrm{j} \omega)=\mathrm{j} X(\omega)
+        \end{array}
+    \end{Equation}
+    简记为实部和幅度为偶函数，虚部和相位为奇函数。
+
+    自变量取反时频谱函数自变量取反，即与原频谱函数共轭。
+
+    原函数为偶函数时频谱函数为实函数，原函数为奇函数时频谱函数为虚函数。
+\end{BoxProperty}
+
+\subsection{对称性}
+
+\begin{BoxProperty}[傅里叶变换的对称性]
+    如果$f(t)\longleftrightarrow F(\omega)$，那么
+    \begin{Equation}
+        F(t) \longleftrightarrow 2\pi f(-\omega)
+    \end{Equation}
+    证明：
+    \begin{Equation}
+        f(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} F(\mathrm{j}\omega) e^{\mathrm{j}\omega t}d\omega
+    \end{Equation}
+    $t$换为$-t$得
+    \begin{Equation}
+        f(-t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} F(\mathrm{j}\omega) e^{-\mathrm{j}\omega t}d\omega
+    \end{Equation}
+    $t$换元为$\omega$，原有$\omega$换元为$t$
+    \begin{Equation}
+        f(-\omega) = \frac{1}{2\pi}\int_{-\infty}^{\infty} F(\mathrm{j}t) e^{-\mathrm{j}\omega t}dt
+    \end{Equation}
+    即
+    \begin{Equation}
+        2\pi f(-\omega) = \int_{-\infty}^{\infty} F(\mathrm{j}t) e^{-\mathrm{j}\omega t}dt\footnote{$\mathrm{j}$表示函数为复函数，因此$F(t)$和$F(\mathrm{j}t)$等价}
+    \end{Equation}
+\end{BoxProperty}
+
+\subsection{尺度变换性质}
+
+\begin{BoxProperty}[傅里叶变换的尺度变换性质]
+    如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
+    \begin{Equation}
+        f(at)\longleftrightarrow\frac{1}{|a|}F\left(\mathrm{j}\frac{\omega}{a}\right)
+    \end{Equation}
+    $a$为非零实数。
+\end{BoxProperty}
+
+\subsection{傅里叶变换的时移特性}
+
+\begin{BoxProperty}[傅里叶变换的时移特性]
+    如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
+    \begin{Equation}
+        f(t-t_0)\longleftrightarrow e^{-\mathrm{j}\omega t_0}F(\mathrm{j}\omega)
+    \end{Equation}
+    $t_0$为实数。
+\end{BoxProperty}
+
+\subsection{频移性质}
+
+\begin{BoxProperty}[傅里叶变换的频移性质]
+    如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
+    \begin{Equation}
+        F\left[\mathrm{j}(\omega - \omega_0)\right]\longleftrightarrow e^{\mathrm{j}\omega_0 t}f(t)
+    \end{Equation}
+    $\omega_0$为实数。
+\end{BoxProperty}
+
+频移性质常用于信号的调制，信号调制的作用是\uwave{频谱搬移}和\uwave{频谱复用}。
+
+\subsection{卷积性质}
+
+\begin{BoxTheorem}[时域卷积定理]
+    如果$f_1(t)\longleftrightarrow F_1(\mathrm{j}\omega)$，$f_2(t)\longleftrightarrow F_2(\mathrm{j}\omega)$，那么
+    \begin{Equation}
+        f_1(t)*f_2(t) \longleftrightarrow F_1(\mathrm{j}\omega)F_2(\mathrm{j}\omega)
+    \end{Equation}
+    \begin{Equation}
+        f_1(t)f_2(t) \longleftrightarrow \frac{1}{2\pi}F_1(\mathrm{j}\omega)*F_2(\mathrm{j}\omega)
+    \end{Equation}
+\end{BoxTheorem}
+
+\subsection{时域的微分和积分}
+
+\begin{BoxTheorem}[傅里叶变换的时域微分定理]
+    如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
+    \begin{Equation}
+        f^{(n)}(t)\longleftrightarrow (\mathrm{j}\omega)^{n}F(\mathrm{j}\omega)
+    \end{Equation}
+    如果$f^{(n)}(t)\longleftrightarrow F_n(\mathrm{j}\omega)$且$f(\infty)+f(-\infty)=0$，那么
+    \begin{Equation}
+        F(\mathrm{j}\omega) = \frac{F_n(\mathrm{j}\omega)}{(\mathrm{j}\omega)^n}
+    \end{Equation}
+\end{BoxTheorem}
+
+\begin{BoxTheorem}[傅里叶变换的时域积分定理]
+    如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
+    \begin{Equation}
+        \int_{-\infty}^{t} f(t) dt \longleftrightarrow \pi f(0) \delta(t) + \frac{F(\mathrm{j}\omega)}{\mathrm{j}\omega}
+    \end{Equation}
+\end{BoxTheorem}
+
+\subsection{频域的微分和积分}
+
+\begin{BoxTheorem}[傅里叶变换的频域微分定理]
+    如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
+    \begin{Equation}
+        (-\mathrm{j}t)^nf(t)\longleftrightarrow F^{(n)}(\mathrm{j}\omega)
+    \end{Equation}
+\end{BoxTheorem}
+
+\begin{BoxTheorem}[傅里叶变换的频域积分定理]
+    如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
+    \begin{Equation}
+        \pi f(0) \delta(t) + \frac{f(t)}{-\mathrm{j}t}\longleftrightarrow \int_{-\infty}^{\omega} F(\mathrm{j}x) dx
+    \end{Equation}
+    其中
+    \begin{Equation}
+        f(0) = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\mathrm{j}\omega) d\omega
+    \end{Equation}
+\end{BoxTheorem}
+
+\subsection{相关定理}
+
+\begin{BoxDefinition}[相关函数]
+    相关函数即两函数间的相关性函数。
+    对于函数$f(t)$，其自相关函数为
+    \begin{Equation}
+        R(\tau) = \int_{-\infty}^{\infty} f(t)f(t-\tau) dt
+    \end{Equation}
+    根据卷积的定义，可以写为
+    \begin{Equation}
+        R(\tau) = f(t)*f(-t)
+    \end{Equation}
+    证明：
+
+    令$y(t)=f(-t)$
+    \begin{Equation}
+        \begin{aligned}
+            f(t)*y(t) & = \int_{-\infty}^{\infty} f(\tau)y(t-\tau) d\tau \\
+                    & = \int_{-\infty}^{\infty} f(\tau)f(\tau-t) d\tau \\
+                    & = \int_{-\infty}^{\infty} f(t)f(t-\tau) dt
+        \end{aligned}
+    \end{Equation}
+    证毕。
+
+    同理，设$f_1(t)$，$f_2(t)$，其互相关函数为
+    \begin{Equation}
+        R_{12}(\tau) = f_1(t)*f_2(-t)
+    \end{Equation}
+    \begin{Equation}
+        R_{21}(\tau) = f_2(t)*f_1(-t)
+    \end{Equation}
+\end{BoxDefinition}
+
+
+\begin{BoxTheorem}[相关定理]
+    如果$f_1(t)\longleftrightarrow F_1(\mathrm{j}\omega)$，$f_2(t)\longleftrightarrow F_2(\mathrm{j}\omega)$，$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
+    \begin{Equation}
+        \mathscr{F}[R_{12}(\tau)] = F_1(\mathrm{j}\omega) F_2^{*}(\mathrm{j}\omega)
+    \end{Equation}
+    \begin{Equation}
+        \mathscr{F}[R_{21}(\tau)] = F_2(\mathrm{j}\omega) F_1^{*}(\mathrm{j}\omega)
+    \end{Equation}
+    \begin{Equation}
+        \mathscr{F}[R(\tau)] = |F(\mathrm{j}\omega)|^2
+    \end{Equation}
+    其中*表示共轭，$F^{*}(\mathrm{j}\omega) = F(-\mathrm{j}\omega)$。
+\end{BoxTheorem}

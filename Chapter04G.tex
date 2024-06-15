@@ -1,0 +1,65 @@
+\section{周期信号的傅里叶变换}
+\subsection{正、余弦的傅里叶变换}
+
+\begin{BoxFormula}[正弦函数的傅里叶变换]
+    由\xref{def:傅里叶级数的指数形式}可知，正弦函数满足
+    \begin{Equation}
+        \sin \omega_0 t = \frac{1}{2\mathrm{j}}(e^{\mathrm{j}\omega_0 t}-e^{-\mathrm{j}\omega_0 t})
+    \end{Equation}
+    由\xref{fml:直流信号的傅里叶变换}、\xref{ppt:傅里叶变换的频移性质}可得
+    \begin{Equation}
+        \sin \omega_0 t \longleftrightarrow - \mathrm{j}\pi \delta(\omega - \omega_0) + \mathrm{j}\pi \delta(\omega+\omega_0)
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{BoxFormula}[余弦函数的傅里叶变换]
+    由\xref{def:傅里叶级数的指数形式}可知，余弦函数满足
+    \begin{Equation}
+        \cos \omega_0 t = \frac{1}{2} (e^{\mathrm{j}\omega_0 t}+e^{-\mathrm{j}\omega_0 t})
+    \end{Equation}
+    由\xref{fml:直流信号的傅里叶变换}、\xref{ppt:傅里叶变换的频移性质}可得
+    \begin{Equation}
+        \cos \omega_0 t \longleftrightarrow \pi \delta(\omega + \omega_0) + \pi \delta(\omega-\omega_0)
+    \end{Equation}
+\end{BoxFormula}
+
+\subsection{一般周期信号的傅里叶变换}
+
+\begin{BoxProperty}[一般周期信号的傅里叶变换]
+    对于一般的周期信号，由\xref{ppt:傅里叶变换的频移性质}，满足
+    \begin{Equation}
+        f_T(t) = \sum\limits_{n=-\infty}^{\infty} F_n e^{\mathrm{j}n\omega t} \longleftrightarrow F_T(\mathrm{j}\omega) = 2\pi \sum\limits_{n=-\infty}^{\infty} F_n \delta(\omega-n\Omega)
+    \end{Equation}
+    可见周期信号的傅里叶变换是冲激序列，即离散谱\footnote{冲激仅存在于谐波频率处，谱线幅度不是有限值，是冲激函数，换言之无限大}。易知非周期信号的频谱为连续谱。
+
+    对于周期为$T$的冲激序列$\delta_T(t) = \sum\limits_{m=-\infty}^{\infty}\delta(t-mT)$，其傅里叶系数
+    \begin{Equation}
+        F_n = \frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}\delta_T(t)e^{-\mathrm{j}n\Omega t}dt = \frac{1}{T}
+    \end{Equation}
+    其傅里叶变换为
+    \begin{Equation}
+        \mathscr{F}\left[\delta_T(t)\right] = \frac{2\pi}{T} \sum\limits_{n=-\infty}^{\infty} \delta(\omega-n\Omega) = \Omega \sum\limits_{n=-\infty}^{\infty} \delta(\omega-n\Omega)
+    \end{Equation}
+    记$\delta_{\Omega}(\omega) = \sum\limits_{n=-\infty}^{\infty} \delta(\omega-n\Omega)$，则
+    \begin{Equation}
+        \delta_T(t) \longleftrightarrow \Omega \delta_{\Omega}(\omega)
+    \end{Equation}
+    对于任一周期信号$f(t)$，我们截取其中一个周期$(-\frac{T}{2},\frac{T}{2})$，即单脉冲信号$f_0(t)$，由\xref{ppt:与冲激函数卷积的筛选性}和\xref{ppt:卷积积分的时移特性}，则
+    \begin{Equation}
+        f_T(t) = \delta_T(t)*f_0(t)
+    \end{Equation}
+    由\xref{thm:时域卷积定理}
+    \begin{Equation}
+        F(\mathrm{j}\omega) = \Omega \delta_{\Omega}(\omega)\cdot F_0(\mathrm{j}\omega) = \Omega \sum\limits_{n=-\infty}^{\infty}F_0(\mathrm{j}n\Omega)\delta(\omega - n\Omega)
+    \end{Equation}
+\end{BoxProperty}
+
+\subsection{傅里叶系数与傅里叶变换关系}
+
+\begin{BoxFormula}[傅里叶系数与傅里叶变换关系]
+    由\xref{ppt:一般周期信号的傅里叶变换}中$F(\mathrm{j}\omega)$的两种形式可知，$F_0(\mathrm{j}\omega)$和$F_n$关系满足
+    \begin{Equation}
+        F_n = \left.\frac{1}{T} F_0(\mathrm{j}\omega)\right|_{\omega = n\Omega}
+    \end{Equation}
+    
+\end{BoxFormula}

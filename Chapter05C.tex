@@ -1,0 +1,121 @@
+\section{拉普拉斯逆变换}
+
+\subsection{零、极点的概念}
+
+\begin{BoxDefinition}[真分式和假分式]
+    若象函数为$s$的有理分式，则可写成
+    \begin{Equation}
+        F(s) = \frac{b_m s^m+b_{m-1}s^{m-1}+\dots+b_1 s+b_0}{s^n+a_{n-1}s^{n-1}+\dots+a_1 s+a_0}
+    \end{Equation}
+    若$m\geq n$，则$F(s)$为假分式，可以用多项式除法化为
+    \begin{Equation}
+        F(s) = P(s) + \frac{B_0(s)}{A(s)}
+    \end{Equation}
+    若$m<n$，则$F(s)$为真分式，可以写为
+    \begin{Equation}
+        F(s) = \frac{B(s)}{A(s)} = \frac{b_ms^m+b_{m-1}s^{m-1}+\dots+b_1s+b_0}{s^n+a_{n-1}s^{n-1}+\dots+a_1s+a_0}
+    \end{Equation}
+\end{BoxDefinition}
+
+\begin{BoxDefinition}[零点与极点]
+    若$F(s)$为真分式，则可分解为
+    \begin{Equation}
+        F(s)=\frac{B(s)}{A(s)} = \frac{b_m(s-z_1)(s-z_2)\dots(s-z_m)}{a_n(s-p_1)(s-p_2)\dots(s-p_n)}
+    \end{Equation}
+    其中$z_1,z_2,\dots,z_m$为$B(s)$的根，称为$F(s)$的零点。
+
+    另外，$p_1,p_2,\dots,p_n$为$A(s)$的根，称为$F(s)$的极点\footnote{$A(s)=0\Rightarrow F(s) = \infty$}。
+\end{BoxDefinition}
+
+\subsection{拉氏逆变换的过程}
+
+\begin{BoxFormula}[单阶实数极点的逆变换]
+    极点为单阶实数时，象函数可化为
+    \begin{Equation}
+        F(s) = \frac{B(s)}{(s-p_1)(s-p_2)\dots(s-p_n)}
+    \end{Equation}
+    其中$p_1,p_2,\dots,p_n$均为不等实根，$F(s)$为真分式。
+
+    进一步地，象函数可化为
+    \begin{Equation}
+        F(s) = \frac{K_1}{s-p_1}+\frac{K_2}{s-p_2}+\dots+\frac{K_n}{s-p_n}
+    \end{Equation}
+    其中
+    \begin{Equation}
+        K_i = (s-p_i)F(s)|_{s=p_i}
+    \end{Equation}
+    对应可得拉普拉斯逆变换
+    \begin{Equation}
+        \mathscr{L}^{-1}\left[\frac{1}{s-p_i}\right] = e^{p_i t}\varepsilon(t)
+    \end{Equation}
+    若原来的象函数为假分式，则先用多项式除法化为真分式。
+
+    根据\xref{def:真分式和假分式}，$P(s)$对应的逆变换满足
+    \begin{Equation}
+        \mathscr{L}^{-1}\left[1\right] = \delta(t)
+    \end{Equation}
+    \begin{Equation}
+        \mathscr{L}^{-1}\left[s^n\right] = \delta^{(n)}(t)
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{BoxFormula}[共轭复数极点的逆变换]
+    极点为共轭复数时，象函数可化为
+    \begin{Equation}
+        F(s) = \frac{B(s)}{A_1(s)\left[(s+\alpha)^2+\beta^2\right]} = \frac{F_1(s)}{(s+\alpha-\mathrm{j}\beta)(s+\alpha+\mathrm{j}\beta)}
+    \end{Equation}
+    共轭极点为$-\alpha\pm\mathrm{j}\beta$
+
+    进一步地象函数可化为
+    \begin{Equation}
+        F(s) = \frac{K_1}{s+\alpha-\mathrm{j}\beta} + \frac{K_2}{s+\alpha+\mathrm{j}\beta} + \dots
+    \end{Equation}
+    其中
+    \begin{Equation}
+        K_1 = (s+\alpha-\mathrm{j}\beta)F(s)|_{s=-\alpha+\mathrm{j}\beta} = \frac{F_1(-\alpha+\mathrm{j}\beta)}{2\mathrm{j}\beta}
+    \end{Equation}
+    \begin{Equation}
+        K_2 = (s+\alpha+\mathrm{j}\beta)F(s)|_{s=-\alpha-\mathrm{j}\beta} = \frac{F_1(-\alpha-\mathrm{j}\beta)}{-2\mathrm{j}\beta}
+    \end{Equation}
+    可见$K_1$，$K_2$构成共轭关系
+    \begin{Equation}
+        K_1 = A + \mathrm{j}B = |K_1|e^{\mathrm{j}\theta} \quad K_2 = A-\mathrm{j}B = K_1^* = |K_1|e^{-\mathrm{j}\theta}
+    \end{Equation}
+    故
+    \begin{Equation}
+        F_0(s) = \frac{K_1}{s+\alpha-\mathrm{j}\beta} + \frac{K_1^*}{s+\alpha + \mathrm{j}\beta} = \frac{|K_1|e^{\mathrm{j}\theta}}{s+\alpha-\mathrm{j}\beta} + \frac{|K_1|e^{-\mathrm{j}\theta}}{s+\alpha+\mathrm{j}\beta}
+    \end{Equation}
+    逆变换为
+    \begin{Equation}
+        \begin{aligned}
+            f_0(t) = \mathscr{L}^{-1}\left[F_0(s)\right] & = e^{-\alpha t}(K_1e^{\beta t}+K_1^*e^{-\beta t})          \\
+                                                         & = 2|K_1|e^{-\alpha t}\cos(\beta t +\theta)\varepsilon(t)   \\
+                                                         & = 2e^{-\alpha t}\left[A\cos(\beta t)-B\sin(\beta t)\right]
+        \end{aligned}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{BoxFormula}[极点含重根的逆变换]
+    对于重根的部分
+    \begin{Equation}
+        \frac{F_1(s)}{(s-p_1)^k} = \frac{K_{11}}{(s-p_1)^k}+ \frac{K_{12}}{(s-p_1)^{k-1}}+\dots+\frac{K_{1(k-1)}}{(s-p_1)^2}+\frac{K_{1k}}{s-p_1}
+    \end{Equation}
+    求$K_11$
+    \begin{Equation}
+        K_{11} = F_1(s)|_{s=p_1} = (s-p_1)^kF(s)|_{s=p_1}
+    \end{Equation}
+    求其他系数
+    \begin{Equation}
+        K_{1i} =  \frac{1}{(i-1)!}\frac{d^{i-1}}{ds^{i-1}}F(s)|_{s=p_1} \quad i=1,2,3,...,k
+    \end{Equation}
+    要求拉普拉斯逆变换，根据\xref{thm:s域微分和积分定理}可知
+    \begin{Equation}
+        \mathscr{L}\left[t^n \varepsilon(t)\right] = \frac{n!}{s^{n+1}}
+    \end{Equation}
+    根据\xref{ppt:拉普拉斯变换的复频移特性}，有
+    \begin{Equation}
+        \mathscr{L}^{-1}\left[\frac{1}{(s-p_1)^{n+1}}\right] = \frac{1}{n!}t^ne^{p_1 t}\varepsilon(t)
+    \end{Equation}
+    由此可得重根项的逆变换。
+\end{BoxFormula}
+

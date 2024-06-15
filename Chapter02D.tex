@@ -1,0 +1,123 @@
+\section{卷积积分的性质}
+
+\subsection{卷积代数运算}
+
+\begin{BoxProperty}[卷积积分的交换律]
+    卷积积分满足交换律
+    \begin{Equation}
+        f_1(t)*f_2(t) = f_2(t) * f_1(t)
+    \end{Equation}
+\end{BoxProperty}
+
+\begin{BoxProperty}[卷积积分的分配律]
+    卷积积分满足分配律
+    \begin{Equation}
+        f_1(t)*\left[f_2(t) + f_3(t)\right]= f_1(t)*f_2(t) + f_1(t)*f_3(t)
+    \end{Equation}
+    即系统并联时总的响应为子系统响应之和。
+\end{BoxProperty}
+
+\begin{BoxProperty}[卷积积分的结合律]
+    卷积积分满足结合律
+    \begin{Equation}
+        \left[f(t)*f_1(t)\right]*f_2(t) = f(t)*\left[f_1(t)*f_2(t)\right]
+    \end{Equation}
+    即系统级联时总的响应等于子系统响应的卷积。
+\end{BoxProperty}
+
+\begin{BoxProperty}[卷积积分的时移特性]
+    若$f_1(t)*f_2(t) = f(t)$，则
+    \begin{Equation}
+        f_1(t-t_1)*f_2(t-t_2) = f_1(t-t_2)*f_2(t-t_1) = f(t-t_1-t_2)
+    \end{Equation}
+\end{BoxProperty}
+
+\subsection{与冲击函数或阶跃函数的卷积}
+
+\begin{BoxProperty}[与冲激函数卷积的筛选性]
+    $f(t)$与$\delta(t)$卷积积分满足
+    \begin{Equation}
+        f(t)*\delta(t) = \delta(t)*f(t) = f(t) 
+    \end{Equation}
+    即\xref{def:信号的时域分解}
+    \begin{Equation}
+        f(t)*\delta(t) = \int_{-\infty}^{\infty} f(\tau)\delta(t-\tau)d\tau = f(t) 
+    \end{Equation}
+    推广
+    \begin{Equation}
+        f(t)*\delta(t-t_0) = f(t-t_0)
+    \end{Equation}
+    根据\xref{ppt:卷积积分的时移特性}再次推广
+    \begin{Equation}
+        f(t-t_1)*\delta(t-t_2) = f(t-t_1-t_2)
+    \end{Equation}
+\end{BoxProperty}
+
+\begin{BoxProperty}[与阶跃函数卷积]
+    与阶跃函数卷积满足
+    \begin{Equation}
+        f(t)*\varepsilon(t) = \int_{-\infty}^{\infty} f(\tau)\varepsilon(t-\tau)d\tau = \int_{-\infty}^{t} f(\tau) d\tau
+    \end{Equation}
+    推广
+    \begin{Equation}
+        \varepsilon(t) * \varepsilon(t) = t\varepsilon(t)
+    \end{Equation}
+    但$\varepsilon(t)*\varepsilon(-t)$不存在。
+    该性质可简记为求原函数的积分上限函数。
+\end{BoxProperty}
+
+\subsection{卷积的微积分性质}
+
+\begin{BoxProperty}[卷积的微分性质]
+    若$f(t) = f_1(t)*f_2(t) = f_2(t)*f_1(t)$，则：
+    \begin{Equation}
+        f^{(1)}(t) = f_1^{(1)}(t) * f_2(t) = f_1(t) * f_2^{(1)}(t)
+    \end{Equation}
+    证明：
+    \begin{Equation}
+        f^{(1)}(t) = \frac{d}{dt}\int_{-\infty}^{\infty} f_1(\tau)f_2(t-\tau)d\tau = \int_{-\infty}^{\infty} f_1(\tau) \frac{d}{dt}f_2(t-\tau) = f_1(t)*f_2^{(1)}(t)
+    \end{Equation}
+    $f_1^{(1)}(t) * f_2(t)$同理。
+\end{BoxProperty}
+
+\begin{BoxProperty}[卷积的积分性质]
+    若$f(t) = f_1(t)*f_2(t) = f_2(t)*f_1(t)$，则：
+    \begin{Equation}
+        \int_{-\infty}^{t}\left[f_1(\tau)*f_2(\tau)\right]d\tau = \left[\int_{-\infty}^{t}f_1(\tau)d\tau\right]*f_2(t) = f_1(t)*\left[\int_{-\infty}^{t}f_2(\tau)d\tau\right]
+    \end{Equation}
+\end{BoxProperty}
+
+\begin{BoxProperty}[卷积的微积分性质]
+    在$f_1(-\infty) = 0$\footnote{先微分再积分}或$f_2^{(-1)}(\infty) = 0$\footnote{先积分再微分}前提下，有
+    \begin{Equation}
+        f_1(t)*f_2(t) = f_1^{(1)}(t)*f_2^{(-1)}(t)
+    \end{Equation}
+    条件推导：
+
+    该式成立要以原式进行一次微分再积分能够还原为条件，即
+    \begin{Equation}
+        \int_{-\infty}^{t}\frac{d\left[f_1(\tau)*f_2(\tau)\right]}{d\tau} d\tau = f_1(t)*f_2(t) - \lim\limits_{t\rightarrow -\infty} \left[f_1(t)*f_2(t)\right]
+    \end{Equation}
+    即满足
+    \begin{Equation}
+        \lim\limits_{t\rightarrow -\infty} \left[f_1(t)*f_2(t)\right]=0
+    \end{Equation}
+    即
+    \begin{Equation}
+        f_1(-\infty) = f_2(-\infty) = 0
+    \end{Equation}
+    
+    性质推广：
+    \begin{Equation}
+        f^{(i)}(t) = f_1^{(j)}(t)*f_2^{(i-j)}(t)
+    \end{Equation}
+\end{BoxProperty}
+
+因此，对于求解连续时间系统的零状态响应还可以使用杜阿密积分。
+
+\begin{BoxFormula}[杜阿密积分]
+    杜阿密积分
+    \begin{Equation}
+        y_{zs}(t) = f(t)*h(t) = f^{(1)}*h^{(-1)}(t) = f^{(1)}(t)*g(t) = \int_{-\infty}^{\infty} f^{(1)}(\tau)g(t-\tau)d\tau
+    \end{Equation}
+\end{BoxFormula}

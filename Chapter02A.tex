@@ -1,0 +1,181 @@
+\section{LTI连续系统的响应}
+
+\subsection{微分方程的经典解}
+
+LTI连续系统由常系数$n$阶线性常微分方程表示
+
+\begin{BoxDefinition}[常系数$n$阶线性常微分方程]
+    常系数$n$阶线性常微分方程
+    \begin{Equation}
+        \begin{array}{ll}
+            y^{n}(t)+a_{n-1}y^{(n-1)}(t)+\dots+a_1y^{(1)}(t)+a_0y(t)=b_mf^{(m)}(t)+b_{m-1}f^{m-1}(t) \\
+            +\dots+b_1f^{(1)}(t)+b_0f(t)
+        \end{array}
+    \end{Equation}
+\end{BoxDefinition}
+
+\begin{BoxFormula}[微分方程的齐次解]
+    列特征方程
+    \begin{Equation}
+        \lambda^n+a_{n-1}\lambda^{n-1}+\dots+a_1\lambda+a_0 = 0
+    \end{Equation}
+    解出特征根，齐次解的形式由特征根确定。
+
+    若为$n$个单实特征根
+    \begin{Equation}
+        y_h(t) = \sum\limits_{i=1}^{n}c_ie^{\lambda_i t}
+    \end{Equation}
+    若为$r$重实根
+    \begin{Equation}
+        y_h(t) = (c_{r-1}t^{r-1}+c_{r-2}t^{r-2}+\dots+c_1t+c_0)e^{\lambda t}
+    \end{Equation}
+    若为$1$对共轭复根$\lambda_{1,2} = \alpha + \mathrm{j}\beta$
+    \begin{Equation}
+        y_h(t) = [C\cos(\beta t) + D\sin(\beta t)]e^{\alpha t}
+    \end{Equation}
+\end{BoxFormula}
+
+齐次解又叫固有响应或自由响应。
+
+\begin{BoxFormula}[微分方程的特解]
+    特解的形式由激励函数$f(t)$的形式确定。
+
+    若激励为常数
+    \begin{Equation}
+        y_p(t) = C
+    \end{Equation}
+    若激励为$t^m$，且特征根均不为$0$
+    \begin{Equation}
+        y_p(t) = P_mt^m+P_{m-1}t^{m-1}+\dots+P_1t+P_0
+    \end{Equation}
+    若激励为$t^m$，且$r$重特征根为$0$
+    \begin{Equation}
+        y_p(t) = t^r(P_mt^m+P_{m-1}t^{m-1}+\dots+P_1t+P_0)
+    \end{Equation}
+    若激励为$e^{\alpha t}$，且$\alpha\neq$特征根
+    \begin{Equation}
+        y_p(t) = Pe^{\alpha t}
+    \end{Equation}
+    若激励为$e^{\alpha t}$，且$\alpha =$特征根
+    \begin{Equation}
+        y_p(t) = (P_1t+P_0)e^{\alpha t}
+    \end{Equation}
+    若激励为$e^{\alpha t}$，且$\alpha = r$重特征根
+    \begin{Equation}
+        y_p(t) = (P_re^r+P_{r-1}e^{r-1}+\dots+P_0)e^{\alpha t}
+    \end{Equation}
+    若激励为$\cos(\beta t),\sin(\beta t)$，且特征根$\neq \pm\mathrm{j}\beta$
+    \begin{Equation}
+        y_p(t) = P_1\cos(\beta t)+P_2\sin(\beta t)
+    \end{Equation}
+    接着将特解代入响应$y(t)$，通过系数比较法列方程解出特解系数
+\end{BoxFormula}
+
+特解又叫强迫响应。
+
+\begin{BoxFormula}[微分方程的全解（一）]
+    求解微分方程的全解步骤如下：
+
+    由\xref{fml:微分方程的齐次解}及\xref{fml:微分方程的特解}可得齐次解的形式以及特解
+
+    全解可用下式表示
+    \begin{Equation}
+        y(t) = y_h(t) + y_p(t)
+    \end{Equation}
+    列出全解后根据初始条件（$y(0),y'(0)$的值）列出方程组解出系数即可
+
+    注意全解的定义域范围为$t\geq0$，最后写出的答案乘上$\varepsilon(t)$或写出$t$的取值范围即可
+\end{BoxFormula}
+
+\subsection{关于$0_{-}和0_{+}$状态的转换}
+
+\begin{BoxProperty}[冲激函数匹配法]
+    在$t=0$时刻，根据激励的冲激函数及其系数确定响应的的冲激函数系数，且左右两边冲激函数各阶导数系数平衡相等。
+
+    如$y'(t)+3y(t)=3\delta'(t)$，由于方程右边有$3\delta'(t)$，故左边$y'(t)$含$3\delta'(t)$，$y(t)$含$3\delta(t)$，但由于右边不存在$3\delta(t)$，故$y'(t)$包含$-9\delta(t)$抵消$3y(t)$中的$9\delta(t)$，此时$y(t)$含有$-9\varepsilon(t)$，冲激函数及其各阶导数系数平衡相等，故可得$t=0$时$y(t)$跳变，且$y(0_+)-y(0_-)=-9$
+\end{BoxProperty}
+
+\subsection{零输入响应和零状态响应}
+
+\begin{BoxFormula}[微分方程的全解（二）]
+    微分方程的全解还可以用零输入响应和零状态响应表示
+    \begin{Equation}
+        y(t) = y_{zi}(t) + y_{zs}(t) \quad (t\geq 0)
+    \end{Equation}
+\end{BoxFormula}
+
+
+\begin{BoxFormula}[零输入响应]
+    零输入响应求解步骤同\xref{fml:微分方程的齐次解}类似，先列微分方程的特征方程解特征根，根据特征根确定解的形式。
+
+    例如特征方程有$n$个单特征实根时
+    \begin{Equation}
+        y_{zi}(t) = \sum\limits_{j=1}^{n}C_{zij}e^{\lambda_j t}
+    \end{Equation}
+
+    列出零输入响应后，代入初始条件解出系数
+
+    初始条件
+
+    \begin{Equation}
+        y_{zi}^{(j)}(0_+) = y_{zi}^{(j)}(0_-) = y^{(j)}(0_-)
+    \end{Equation}
+
+    $y_{zi}(t)$定义域为$t\geq0$
+\end{BoxFormula}
+
+\begin{BoxFormula}[零状态响应]
+    零状态响应解的形式与对应齐次方程通解相似，参考\xref{fml:微分方程的齐次解}，区别在于需要加上特解$y_p(t)$，形式的规则同\xref{fml:微分方程的特解}
+
+    例如特征方程有$n$个单特征实根时
+    \begin{Equation}
+        y_{zs}(t) = \sum\limits_{j=1}^{n}C_{zsj}e^{\lambda_j t}+y_p(t)
+    \end{Equation}
+    对于通解$y_p(t)$，根据$t>0$时激励$f(t)$的形式确定
+
+    例如
+
+    \begin{Equation}
+        f(t) = \varepsilon(t) \quad (t>0) \Rightarrow f(t) = 1 \Rightarrow y_p(t) = C
+    \end{Equation}
+
+    零状态响应已有初始条件
+
+    \begin{Equation}
+        y_{zs}(0_-) = y_{zs}'(0_-) = 0
+    \end{Equation}
+
+    将初始条件及零状态响应代入原方程可解出特解系数
+
+    剩余系数可通过\xref{ppt:冲激函数匹配法}冲激函数匹配法求出$y_{zs}(0_+),y_{zs}'(0_+)$，再代入$t>0$时的方程求解
+
+    冲激函数匹配法过程
+
+    根据激励的冲激项及其系数列出$y_{zs}(t)$各阶导数项，假设激励的冲激项为$a\delta(t)$，响应的最高阶导数为$y''(t)$
+
+    \begin{Equation}
+        \left\{
+        \begin{array}{ll}
+            y_{zs}''(t) = a\delta(t) + r_1(t) \\
+            y_{zs}'(t) = r_2(t)               \\
+            y_{zs}(t) = r_3(t)
+        \end{array}
+        \right.
+    \end{Equation}
+
+    其中$r_i(t)$为不含$\delta(t)$的某函数
+
+    方程组系数代入原微分方程根据系数平衡解出
+
+    两侧同时从$0_-$到$0_+$积分可得$y_{zs}(0_+),y_{zs}'(0_+)$
+
+    积分满足
+    \begin{Equation}
+        \begin{array}{ll}
+            \int_{0_-}^{0_+}y_{zs}''(t)dt = y_{zs}'(0_+) - y_{zs}'(0_-) \\
+            \int_{0_-}^{0_+}r(t)dt = 0                                  \\
+            \int_{0_-}^{0_+}a\delta (t)dt = a
+        \end{array}
+    \end{Equation}
+    $y_{zs}(t)$定义域为$t\geq0$
+\end{BoxFormula}

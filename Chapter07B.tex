@@ -1,0 +1,21 @@
+\section{系统的稳定性}
+
+\subsection{稳定系统的的定义}
+
+\begin{BoxDefinition}[系统的稳定性]
+    一个系统若对任意的有界输入，其零状态响应也是有界的，则称该系统为有界输入有界输出（BIBO\footnote{Bound Input Bound Output}）稳定的系统，简称为稳定系统。
+
+    即若系统对所有激励$|f(\cdot)|\leq M_f$，其零状态响应$|y_{zs}(\cdot)|\leq M_y$（$M$为有限常数），则称系统稳定。
+\end{BoxDefinition}
+
+\subsection{连续稳定系统的充分必要条件}
+
+\begin{BoxTheorem}[连续稳定系统的充分必要条件]
+    连续稳定系统的充分必要条件中，时域条件为
+    \begin{Equation}
+        \int_{-\infty}^{\infty} |h(t)|dt\leq M
+    \end{Equation}
+    s域条件为若$H(s)$的收敛域包含虚轴，则该系统必是稳定系统。
+
+    对于因果系统，若$H(s)$的极点均在左半开平面，则该系统必是稳定系统。
+\end{BoxTheorem}

@@ -1,0 +1,80 @@
+\section{冲激响应和阶跃响应}
+
+\subsection{冲激响应}
+
+\begin{BoxDefinition}[冲激响应]
+    由单位冲激函数$\delta(t)$所引起的零状态响应称为单位冲激响应
+    \begin{Equation}
+        h(t) = T[\{0\},\delta(t)]
+    \end{Equation}
+\end{BoxDefinition}
+
+\begin{BoxDefinition}[冲激响应的数学模型]
+    LTI系统的冲激响应的数学模型由$n$阶微分方程表示
+    \begin{Equation}
+        \begin{array}{ll}
+            \frac{d^{n}h(t)}{dt^n}+a_{n-1}\frac{d^{n-1}h(t)}{dt^{n-1}}+\dots+a_1\frac{dh(t)}{dt}+a_0h(t)=b_m\frac{d^m\delta(t)}{dt^m}+b_{m-1}\frac{d^{m-1}\delta(t)}{dt^{m-1}}\\
+            +\dots+b_1\frac{d\delta(t)}{dt}+b_0\delta(t)
+        \end{array}
+    \end{Equation}
+\end{BoxDefinition}
+
+\begin{BoxFormula}[冲激响应的求解-形式]
+    由于$t\geq0$时等式右边为$0$，因此冲激函数响应的齐次解形式相同。
+
+    解与特征根有关，对于特征根均为单根的情况
+    \begin{Equation}
+        h(t) = \left[\sum\limits_{i=1}^{n}c_i e^{\lambda_i t} \right]\varepsilon(t)
+    \end{Equation}
+    与$n,m$相对大小有关
+    \begin{itemize}
+        \item 当$n>m$时，$h(t)$不含$\delta(t)$及其各阶导数
+        \item 当$n=m$时，$h(t)$包含$\delta(t)$
+        \item 当$n<m$时，$h(t)$包含$\delta(t)$及其各阶导数
+    \end{itemize}
+
+\end{BoxFormula}
+
+\begin{BoxFormula}[冲激响应的求解-系数]
+    
+    求解系数可由\xref{fml:零状态响应}中冲激函数匹配法求得各阶$0_+$值代入求解或奇异函数项平衡法直接解出系数（若响应包含冲激项，用此方法）
+
+    奇异函数项平衡法将$h(t)$各阶导数代入原方程后根据系数平衡列方程组求解即可
+
+    线性时不变法先设$h_1(t)$满足
+    \begin{Equation}
+        \frac{d^{n}h_1(t)}{dt^n}+a_{n-1}\frac{d^{n-1}h_1(t)}{dt^{n-1}}+\dots+a_1\frac{dh_1(t)}{dt}+a_0h_1(t)=\delta(t)
+    \end{Equation}
+
+    再根据冲激函数匹配法得到$h_1(t)$的各阶$0_+$值，代入原式求解$h_1(t)$
+
+    最后根据线性时不变性
+
+    \begin{Equation}
+        h(t)=b_m\frac{d^mh_1(t)}{dt^m}+b_{m-1}\frac{d^{m-1}h_1(t)}{dt^{m-1}}+\dots+b_1\frac{dh_1(t)}{dt}+b_0h_1(t)
+    \end{Equation}
+
+    $h_1(t)$的各阶导数忽略冲激项即可
+    
+\end{BoxFormula}
+
+\subsection{阶跃响应}
+
+\begin{BoxDefinition}[阶跃响应]
+    由单位阶跃函数$\varepsilon(t)$所引起的零状态响应称为单位阶跃响应
+    \begin{Equation}
+        g(t) = T[\{0\},\varepsilon(t)]
+    \end{Equation}
+\end{BoxDefinition}
+
+\begin{BoxDefinition}[阶跃响应的性质]
+    阶跃响应满足以下性质
+    \begin{Equation}
+        h(t) = \frac{dg(t)}{dt}
+    \end{Equation}
+    \begin{Equation}
+        g(t) = \int_{-\infty}^{t}h(\tau)d\tau
+    \end{Equation}
+
+    因果系统的积分限为$\int_{0_-}^t$
+\end{BoxDefinition}
