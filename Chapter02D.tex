@@ -68,19 +68,19 @@
 
 \subsection{卷积的微积分性质}
 
-\begin{BoxProperty}[卷积的微分性质]
+\begin{BoxProperty}[卷积的微分性质]*
     若$f(t) = f_1(t)*f_2(t) = f_2(t)*f_1(t)$，则：
     \begin{Equation}
         f^{(1)}(t) = f_1^{(1)}(t) * f_2(t) = f_1(t) * f_2^{(1)}(t)
     \end{Equation}
-    证明：
+\end{BoxProperty}
+证明：
     \begin{Equation}
         f^{(1)}(t) = \frac{d}{dt}\int_{-\infty}^{\infty} f_1(\tau)f_2(t-\tau)d\tau = \int_{-\infty}^{\infty} f_1(\tau) \frac{d}{dt}f_2(t-\tau) = f_1(t)*f_2^{(1)}(t)
     \end{Equation}
-    $f_1^{(1)}(t) * f_2(t)$同理。
-\end{BoxProperty}
+$f_1^{(1)}(t) * f_2(t)$同理。
 
-\begin{BoxProperty}[卷积的积分性质]
+\begin{BoxProperty}[卷积的积分性质]*
     若$f(t) = f_1(t)*f_2(t) = f_2(t)*f_1(t)$，则：
     \begin{Equation}
         \int_{-\infty}^{t}\left[f_1(\tau)*f_2(\tau)\right]d\tau = \left[\int_{-\infty}^{t}f_1(\tau)d\tau\right]*f_2(t) = f_1(t)*\left[\int_{-\infty}^{t}f_2(\tau)d\tau\right]

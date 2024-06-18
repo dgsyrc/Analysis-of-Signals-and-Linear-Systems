@@ -2,7 +2,7 @@
 
 \subsection{直接实现}
 
-\begin{BoxProperty}[通过梅森公式直接实现构造信号流图]
+\begin{BoxProperty}[通过梅森公式直接实现构造信号流图]*
     将系统函数化为以下形式
     \begin{Equation}
         H(s) = \frac{b_ms^{-(n-m)}+b_{m-1}s^{-(n-m+1)}+\dots+b_0s^{-n}}{1-(-a_{n-1}s^{-1}-a_{n-2}s^{-2}-\dots-a_0s^{-n})}
@@ -16,7 +16,7 @@
 
 \subsection{级联实现}
 
-\begin{BoxProperty}[级联实现构造信号流图]
+\begin{BoxProperty}[级联实现构造信号流图]*
     将$H$分解为若干一阶或二阶的系统函数的乘积，即
     \begin{Equation}
         H = H_1H_2\dots H_n
@@ -35,7 +35,7 @@
 
 \subsection{并联实现}
 
-\begin{BoxProperty}[并联实现构造信号流图]
+\begin{BoxProperty}[并联实现构造信号流图]*
     将$H$展开为部分分式，将每个分式分别作为支路增益，再将各支路并联。
 
     即将$H$化为以下形式再构造

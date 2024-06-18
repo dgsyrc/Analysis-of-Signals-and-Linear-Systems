@@ -25,7 +25,7 @@
 
 \subsection[系统函数与系统的因果性]{系统函数$H(\cdot)$与系统的因果性}
 
-\begin{BoxDefinition}[系统的因果性]
+\begin{BoxDefinition}[系统的因果性]*
     因果系统是指系统的零状态响应$y_{zs}(\cdot)$不会出现于$f(\cdot)$之前的系统。
 
     连续因果系统的充分必要条件是冲激响应满足
@@ -45,7 +45,7 @@
 
 $H(s)$的极点在$s$平面上的位置可分为极点在左半开平面、虚轴和右半开平面三类。
 
-\begin{BoxProperty}[极点在左半开平面的连续因果系统的时域响应]
+\begin{BoxProperty}[极点在左半开平面的连续因果系统的时域响应]*
     极点在左半开平面时，若系统函数有负实单极点$p=-\alpha(\alpha>0)$，则$A(s)$中有因子$(s+\alpha)$，其所对应的响应函数为
     \begin{Equation}
         h_1(t) = Ke^{-\alpha t}\varepsilon(t)
@@ -65,7 +65,7 @@ $H(s)$的极点在$s$平面上的位置可分为极点在左半开平面、虚�
     以上三种情况在$t\rightarrow \infty$时，响应均趋于$0$，为暂态分量，该系统稳定。
 \end{BoxProperty}
 
-\begin{BoxProperty}[极点在虚轴上的连续因果系统的时域响应]
+\begin{BoxProperty}[极点在虚轴上的连续因果系统的时域响应]*
     极点在虚轴上时，若系统函数有负实单极点$p=0$或$p_{12}=\pm\mathrm{j}\beta$，则响应函数为
     \begin{Equation}
         h_1(t) = K\varepsilon(t)
@@ -87,7 +87,7 @@ $H(s)$的极点在$s$平面上的位置可分为极点在左半开平面、虚�
     此时响应为递增函数，对应系统不稳定。
 \end{BoxProperty}
 
-\begin{BoxProperty}[极点在右半开平面的连续因果系统的时域响应]
+\begin{BoxProperty}[极点在右半开平面的连续因果系统的时域响应]*
     极点在右半开平面时，其对应的响应函数都是递增的，系统不稳定。
 \end{BoxProperty}
 
@@ -95,12 +95,12 @@ $H(s)$的极点在$s$平面上的位置可分为极点在左半开平面、虚�
 
 \subsection{系统函数与频率响应}
 
-\begin{BoxDefinition}[全通函数]
+\begin{BoxDefinition}[全通函数]*
     若系统的幅频响应$|H(\mathrm{j}\omega)|$为常数，则称为全通系统，其相应的$H(s)$称为全通函数。
 
     凡极点位于左半开平面，零点位于右半开平面，并且所有零点与极点相对于虚轴一一镜像对称的系统函数$H(s)$即为全通函数。
 \end{BoxDefinition}
 
-\begin{BoxDefinition}[最小相移函数]
+\begin{BoxDefinition}[最小相移函数]*
     对于有相同幅频特性的系统函数而言，右半开平面没有零点的系统函数称为最小相移函数。
 \end{BoxDefinition}

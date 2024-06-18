@@ -57,7 +57,7 @@
 
 \subsection{尺度变换性质}
 
-\begin{BoxProperty}[傅里叶变换的尺度变换性质]
+\begin{BoxProperty}[傅里叶变换的尺度变换性质]*
     如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
     \begin{Equation}
         f(at)\longleftrightarrow\frac{1}{|a|}F\left(\mathrm{j}\frac{\omega}{a}\right)
@@ -67,7 +67,7 @@
 
 \subsection{傅里叶变换的时移特性}
 
-\begin{BoxProperty}[傅里叶变换的时移特性]
+\begin{BoxProperty}[傅里叶变换的时移特性]*
     如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
     \begin{Equation}
         f(t-t_0)\longleftrightarrow e^{-\mathrm{j}\omega t_0}F(\mathrm{j}\omega)
@@ -77,7 +77,7 @@
 
 \subsection{频移性质}
 
-\begin{BoxProperty}[傅里叶变换的频移性质]
+\begin{BoxProperty}[傅里叶变换的频移性质]*
     如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
     \begin{Equation}
         F\left[\mathrm{j}(\omega - \omega_0)\right]\longleftrightarrow e^{\mathrm{j}\omega_0 t}f(t)
@@ -89,7 +89,7 @@
 
 \subsection{卷积性质}
 
-\begin{BoxTheorem}[时域卷积定理]
+\begin{BoxTheorem}[时域卷积定理]*
     如果$f_1(t)\longleftrightarrow F_1(\mathrm{j}\omega)$，$f_2(t)\longleftrightarrow F_2(\mathrm{j}\omega)$，那么
     \begin{Equation}
         f_1(t)*f_2(t) \longleftrightarrow F_1(\mathrm{j}\omega)F_2(\mathrm{j}\omega)
@@ -101,7 +101,7 @@
 
 \subsection{时域的微分和积分}
 
-\begin{BoxTheorem}[傅里叶变换的时域微分定理]
+\begin{BoxTheorem}[傅里叶变换的时域微分定理]*
     如果$f(t)\longleftrightarrow F(\mathrm{j}\omega)$，那么
     \begin{Equation}
         f^{(n)}(t)\longleftrightarrow (\mathrm{j}\omega)^{n}F(\mathrm{j}\omega)
@@ -141,7 +141,7 @@
 
 \subsection{相关定理}
 
-\begin{BoxDefinition}[相关函数]
+\begin{BoxDefinition}[相关函数]*
     相关函数即两函数间的相关性函数。
     对于函数$f(t)$，其自相关函数为
     \begin{Equation}
@@ -157,8 +157,8 @@
     \begin{Equation}
         \begin{aligned}
             f(t)*y(t) & = \int_{-\infty}^{\infty} f(\tau)y(t-\tau) d\tau \\
-                    & = \int_{-\infty}^{\infty} f(\tau)f(\tau-t) d\tau \\
-                    & = \int_{-\infty}^{\infty} f(t)f(t-\tau) dt
+                      & = \int_{-\infty}^{\infty} f(\tau)f(\tau-t) d\tau \\
+                      & = \int_{-\infty}^{\infty} f(t)f(t-\tau) dt
         \end{aligned}
     \end{Equation}
     证毕。
