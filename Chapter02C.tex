@@ -29,7 +29,7 @@
 \begin{BoxDefinition}[卷积积分]
     已知定义在区间$(-\infty,\infty)$上的两个函数$f_1(t)$和$f_2(t)$，则定义积分
     \begin{Equation}
-        f(t) = \int_{\infty}^{\infty} f_1(\tau)f_2(t-\tau)d\tau
+        f(t) = \int_{-\infty}^{\infty} f_1(\tau)f_2(t-\tau)d\tau
     \end{Equation}
     为$f_1(t)$和$f_2(t)$的卷积积分，简称卷积。记为
     \begin{Equation}
@@ -37,7 +37,7 @@
     \end{Equation}
     例如对于$y_{zs}(t)$
     \begin{Equation}
-        y_{zs}(t) = \int_{\infty}^{\infty}f(\tau)h(t-\tau)d\tau = f(t)*h(t)
+        y_{zs}(t) = \int_{-\infty}^{\infty}f(\tau)h(t-\tau)d\tau = f(t)*h(t)
     \end{Equation}
     
 \end{BoxDefinition}
